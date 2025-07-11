@@ -15,7 +15,7 @@ import { Career } from "./pages/Career";
 import { Contact } from "./pages/Contact";
 
 // Admin Pages
-import { Login } from "./pages/admin/login";
+import { Login } from "./pages/admin/Login";
 import { Dashboard } from "./pages/admin/Dashboard";
 import { ContentManagement } from "./pages/admin/ContentManagement";
 import { StaffManagement } from "./pages/admin/StaffManagement";
