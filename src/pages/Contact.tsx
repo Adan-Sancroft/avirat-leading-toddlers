@@ -1,7 +1,53 @@
+import { useState } from "react";
+import { useEnquiries } from "../hooks/useSupabase";
 import { Container } from "../components/ui/Container";
 import { Card } from "../components/ui/Card";
 
 export const Contact = () => {
+  const { addEnquiry } = useEnquiries();
+  const [formData, setFormData] = useState({
+    parent_name: "",
+    child_name: "",
+    child_age: "",
+    program_interest: "",
+    contact_number: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const { error } = await addEnquiry(formData);
+
+      if (error) {
+        setSubmitStatus("error");
+      } else {
+        setSubmitStatus("success");
+        setFormData({
+          parent_name: "",
+          child_name: "",
+          child_age: "",
+          program_interest: "",
+          contact_number: "",
+          email: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -189,13 +235,48 @@ export const Contact = () => {
                 Admission Inquiry
               </h2>
 
-              <form
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                }}
-              >
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div
+                  style={{
+                    background: "#dcfce7",
+                    border: "1px solid #bbf7d0",
+                    borderRadius: "8px",
+                    padding: "16px",
+                    marginBottom: "24px",
+                    color: "#166534",
+                  }}
+                >
+                  <h4 style={{ margin: "0 0 8px", fontSize: "16px" }}>
+                    Thank you for your inquiry!
+                  </h4>
+                  <p style={{ margin: "0", fontSize: "14px" }}>
+                    We have received your admission inquiry and will contact you
+                    within 24 hours. Our team will reach out to discuss the next
+                    steps and answer any questions you may have.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div
+                  style={{
+                    background: "#fee2e2",
+                    border: "1px solid #fecaca",
+                    borderRadius: "8px",
+                    padding: "16px",
+                    marginBottom: "24px",
+                    color: "#991b1b",
+                  }}
+                >
+                  <p style={{ margin: "0", fontSize: "14px" }}>
+                    There was an error submitting your inquiry. Please try again
+                    or contact us directly.
+                  </p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit}>
                 <div>
                   <label
                     style={{
@@ -209,6 +290,10 @@ export const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    value={formData.parent_name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, parent_name: e.target.value })
+                    }
                     required
                     style={{
                       width: "100%",
@@ -217,6 +302,7 @@ export const Contact = () => {
                       borderRadius: "8px",
                       fontSize: "16px",
                       outline: "none",
+                      marginBottom: "20px",
                     }}
                     placeholder="Enter your full name"
                   />
@@ -235,6 +321,10 @@ export const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    value={formData.child_name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, child_name: e.target.value })
+                    }
                     required
                     style={{
                       width: "100%",
@@ -243,6 +333,7 @@ export const Contact = () => {
                       borderRadius: "8px",
                       fontSize: "16px",
                       outline: "none",
+                      marginBottom: "20px",
                     }}
                     placeholder="Enter child's full name"
                   />
@@ -253,6 +344,7 @@ export const Contact = () => {
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
                     gap: "16px",
+                    marginBottom: "20px",
                   }}
                 >
                   <div>
@@ -267,6 +359,10 @@ export const Contact = () => {
                       Child's Age *
                     </label>
                     <select
+                      value={formData.child_age}
+                      onChange={(e) =>
+                        setFormData({ ...formData, child_age: e.target.value })
+                      }
                       required
                       style={{
                         width: "100%",
@@ -298,6 +394,13 @@ export const Contact = () => {
                       Program Interest *
                     </label>
                     <select
+                      value={formData.program_interest}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          program_interest: e.target.value,
+                        })
+                      }
                       required
                       style={{
                         width: "100%",
@@ -330,6 +433,13 @@ export const Contact = () => {
                   </label>
                   <input
                     type="tel"
+                    value={formData.contact_number}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        contact_number: e.target.value,
+                      })
+                    }
                     required
                     style={{
                       width: "100%",
@@ -338,6 +448,7 @@ export const Contact = () => {
                       borderRadius: "8px",
                       fontSize: "16px",
                       outline: "none",
+                      marginBottom: "20px",
                     }}
                     placeholder="Enter your mobile number"
                   />
@@ -356,6 +467,10 @@ export const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     required
                     style={{
                       width: "100%",
@@ -364,6 +479,7 @@ export const Contact = () => {
                       borderRadius: "8px",
                       fontSize: "16px",
                       outline: "none",
+                      marginBottom: "20px",
                     }}
                     placeholder="Enter your email address"
                   />
@@ -382,6 +498,10 @@ export const Contact = () => {
                   </label>
                   <textarea
                     rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     style={{
                       width: "100%",
                       padding: "12px 16px",
@@ -390,6 +510,7 @@ export const Contact = () => {
                       fontSize: "16px",
                       outline: "none",
                       resize: "vertical",
+                      marginBottom: "20px",
                     }}
                     placeholder="Any specific questions or requirements..."
                   />
@@ -397,20 +518,21 @@ export const Contact = () => {
 
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   style={{
                     width: "100%",
                     padding: "16px",
-                    background: "#ff8787",
+                    background: isSubmitting ? "#94a3b8" : "#ff8787",
                     color: "white",
                     border: "none",
                     borderRadius: "8px",
                     fontSize: "16px",
                     fontWeight: "600",
-                    cursor: "pointer",
+                    cursor: isSubmitting ? "not-allowed" : "pointer",
                     marginTop: "16px",
                   }}
                 >
-                  Submit Inquiry
+                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </button>
               </form>
             </Card>
