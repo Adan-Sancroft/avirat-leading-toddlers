@@ -1,75 +1,46 @@
 import { Container } from "../components/ui/Container";
 import { Card } from "../components/ui/Card";
+import { useStaff } from "../hooks/useSupabase";
 
 export const GeneralInfo = () => {
-  // Staff data with placeholders
-  const staffData = [
-    {
-      name: "Priya Sharma",
-      designation: "Senior Teacher",
-      qualification: "B.Ed, M.A",
-    },
-    {
-      name: "Rajesh Kumar",
-      designation: "Physical Education",
-      qualification: "B.P.Ed",
-    },
-    { name: "Anita Patel", designation: "Art Teacher", qualification: "B.F.A" },
-    {
-      name: "Suresh Gupta",
-      designation: "Music Teacher",
-      qualification: "B.Mus",
-    },
-    {
-      name: "Kavita Singh",
-      designation: "Dance Teacher",
-      qualification: "B.A Dance",
-    },
-    {
-      name: "Mohan Verma",
-      designation: "Sports Coach",
-      qualification: "B.P.Ed",
-    },
-    {
-      name: "Sunita Joshi",
-      designation: "Nursery Teacher",
-      qualification: "B.Ed",
-    },
-    {
-      name: "Ramesh Shah",
-      designation: "Security Guard",
-      qualification: "12th Pass",
-    },
-    { name: "Geeta Rani", designation: "Ayah", qualification: "10th Pass" },
-    { name: "Vijay Kumar", designation: "Peon", qualification: "8th Pass" },
-    { name: "Meera Devi", designation: "Cook", qualification: "5th Pass" },
-    { name: "Ashok Singh", designation: "Gardener", qualification: "8th Pass" },
-    {
-      name: "Ritu Sharma",
-      designation: "Receptionist",
-      qualification: "B.Com",
-    },
-  ];
+  const { staff, loading } = useStaff();
+
+  if (loading) {
+    return (
+      <div style={{ padding: "48px", textAlign: "center" }}>Loading...</div>
+    );
+  }
 
   return (
     <div>
       {/* Hero Section */}
       <section
-        style={{
-          background: "linear-gradient(135deg, #dbe4ff 0%, #e5dbff 100%)",
-          padding: "80px 0",
-          textAlign: "center",
-        }}
+        className="hero-with-background hero-general-info"
+        style={{ padding: "80px 0", textAlign: "center" }}
       >
         <Container>
-          <h1
-            style={{ fontSize: "3rem", marginBottom: "24px", color: "#292524" }}
-          >
-            General Information
-          </h1>
-          <p style={{ fontSize: "1.2rem", color: "#57534e" }}>
-            Everything you need to know about Avirat Leading Toddlers
-          </p>
+          <div className="hero-content">
+            <h1
+              style={{
+                fontSize: "3rem",
+                marginBottom: "24px",
+                color: "#292524",
+              }}
+            >
+              General Information
+            </h1>
+            <p
+              style={{
+                fontSize: "1.3rem",
+                fontWeight: "500",
+                color: "#000",
+                maxWidth: "600px",
+                margin: "0 auto",
+              }}
+            >
+              Everything you need to know about Avirat Leading Toddlers
+            </p>
+          </div>
         </Container>
       </section>
 
@@ -141,7 +112,7 @@ export const GeneralInfo = () => {
                   <h4 style={{ color: "#014A98", marginBottom: "8px" }}>
                     Established
                   </h4>
-                  <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>2015</p>
+                  <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>2017</p>
                 </div>
                 <div
                   style={{
@@ -169,20 +140,7 @@ export const GeneralInfo = () => {
                   <h4 style={{ color: "#014A98", marginBottom: "8px" }}>
                     Students
                   </h4>
-                  <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>150+</p>
-                </div>
-                <div
-                  style={{
-                    textAlign: "center",
-                    padding: "20px",
-                    background: "#f8fafc",
-                    borderRadius: "12px",
-                  }}
-                >
-                  <h4 style={{ color: "#014A98", marginBottom: "8px" }}>
-                    Teachers
-                  </h4>
-                  <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>15+</p>
+                  <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>100+</p>
                 </div>
               </div>
             </Card>
@@ -211,9 +169,9 @@ export const GeneralInfo = () => {
               margin: "0 auto",
             }}
           >
-            {staffData.map((staff, index) => (
+            {staff.map((staffMember) => (
               <Card
-                key={index}
+                key={staffMember.id}
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -227,7 +185,11 @@ export const GeneralInfo = () => {
                     width: "100px",
                     height: "100px",
                     borderRadius: "50%",
-                    background: "#dbe4ff",
+                    background: staffMember.image_url
+                      ? `url(${staffMember.image_url})`
+                      : "#dbe4ff",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -237,7 +199,7 @@ export const GeneralInfo = () => {
                     fontSize: "14px",
                   }}
                 >
-                  Photo
+                  {!staffMember.image_url && "Photo"}
                 </div>
                 <h3
                   style={{
@@ -247,7 +209,7 @@ export const GeneralInfo = () => {
                     marginBottom: "8px",
                   }}
                 >
-                  {staff.name}
+                  {staffMember.name}
                 </h3>
                 <p
                   style={{
@@ -257,10 +219,10 @@ export const GeneralInfo = () => {
                     marginBottom: "4px",
                   }}
                 >
-                  {staff.designation}
+                  {staffMember.designation}
                 </p>
                 <p style={{ fontSize: "14px", color: "#78716c" }}>
-                  {staff.qualification}
+                  {staffMember.qualification}
                 </p>
               </Card>
             ))}
@@ -268,7 +230,7 @@ export const GeneralInfo = () => {
         </Container>
       </section>
 
-      {/* School Rules */}
+      {/* School Rules
       <section id="rules" className="section">
         <Container>
           <h2
@@ -315,39 +277,26 @@ export const GeneralInfo = () => {
                       Regular attendance is encouraged for better learning
                       outcomes
                     </li>
-                    <li>Mobile phones are not allowed for children</li>
+                    <li>
+                      Parents and guardians must attend all parent-teacher
+                      meetings
+                    </li>
+                    <li>
+                      Parents and guardians are not allowed to visit the
+                      children in class without prior permission
+                    </li>
+                    <li>
+                      Parents are requested to inform the school in advance if
+                      the child will remain absent for longer duration.
+                    </li>
+                    <li>
+                      Please check almanac and school bag on a daily basis.
+                    </li>
+                    <li>Please avoid fancy hairstyles and accessories.</li>
                     <li>
                       Parents must inform about any allergies or medical
                       conditions
                     </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3
-                    style={{
-                      color: "#014A98",
-                      marginBottom: "20px",
-                      fontSize: "1.3rem",
-                    }}
-                  >
-                    Safety Rules
-                  </h3>
-                  <ul
-                    style={{
-                      color: "#57534e",
-                      lineHeight: "1.8",
-                      paddingLeft: "20px",
-                    }}
-                  >
-                    <li>
-                      Children should not bring sharp objects or toys from home
-                    </li>
-                    <li>Proper hygiene must be maintained at all times</li>
-                    <li>
-                      Emergency contact information must be updated regularly
-                    </li>
-                    <li>Children with fever or illness should stay at home</li>
-                    <li>All visitors must register at the reception</li>
                   </ul>
                 </div>
               </div>
@@ -356,7 +305,7 @@ export const GeneralInfo = () => {
         </Container>
       </section>
 
-      {/* School Norms */}
+      {/* School Norms 
       <section id="norms" className="section section-bg">
         <Container>
           <h2
@@ -387,11 +336,16 @@ export const GeneralInfo = () => {
                     marginBottom: "16px",
                   }}
                 >
-                  <strong>Morning Session:</strong> 9:00 AM - 12:00 PM
+                  <strong>School Timing (PG and Nursery):</strong> 9:00 AM -
+                  12:30 PM
                   <br />
-                  <strong>Afternoon Session:</strong> 1:00 PM - 4:00 PM
+                  <strong>School Timing (Jr. KG and Sr. KG):</strong> 8:00 AM -
+                  12:30 PM
                   <br />
-                  <strong>Extended Care:</strong> 4:00 PM - 6:00 PM (Optional)
+                  <strong>Meeting with Director/Principal:</strong> 9:00 AM -
+                  11:00 AM
+                  <br />
+                  <strong>Meeting with Coordinator:</strong> 9:00 AM - 11:30 AM
                 </p>
               </div>
 
@@ -408,8 +362,7 @@ export const GeneralInfo = () => {
                 <p style={{ color: "#57534e", lineHeight: "1.8" }}>
                   All students are required to wear the prescribed school
                   uniform. Comfortable shoes are mandatory. Hair should be
-                  neatly tied. Jewelry should be minimal and safe for young
-                  children.
+                  neatly tied. The school ID card must be worn at all times.
                 </p>
               </div>
 
@@ -424,18 +377,189 @@ export const GeneralInfo = () => {
                   Parent Communication
                 </h3>
                 <p style={{ color: "#57534e", lineHeight: "1.8" }}>
-                  Regular parent-teacher meetings are conducted monthly. Daily
-                  reports are shared through our communication app. Parents are
-                  encouraged to participate in school events and activities.
+                  Regular parent-teacher meetings are conducted monthly.
+                  Communication about daily school activities is regularly
+                  shared with parents. Parents are also encouraged to
+                  participate in school events.
                 </p>
               </div>
             </Card>
           </div>
         </Container>
+      </section> */}
+
+      {/* School Rules & Norms - Combined Section */}
+      <section id="rules-norms" className="section">
+        <Container>
+          {/* <h2
+            style={{
+              fontSize: "2.5rem",
+              textAlign: "center",
+              marginBottom: "48px",
+            }}
+          >
+            School Rules & Norms
+          </h2> */}
+          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "48px",
+              }}
+            >
+              {/* School Rules Card */}
+              <Card style={{ padding: "48px" }}>
+                <h3
+                  style={{
+                    color: "#014A98",
+                    marginBottom: "24px",
+                    fontSize: "1.5rem",
+                    textAlign: "center",
+                  }}
+                >
+                  School Rules
+                </h3>
+                <div>
+                  <h4
+                    style={{
+                      color: "#014A98",
+                      marginBottom: "20px",
+                      fontSize: "1.3rem",
+                    }}
+                  >
+                    General Rules
+                  </h4>
+                  <ul
+                    style={{
+                      color: "#57534e",
+                      lineHeight: "1.8",
+                      paddingLeft: "20px",
+                    }}
+                  >
+                    <li>
+                      All children must be accompanied by parents/guardians
+                      during drop-off and pick-up
+                    </li>
+                    <li>School uniform is mandatory for all students</li>
+                    <li>
+                      Regular attendance is encouraged for better learning
+                      outcomes
+                    </li>
+                    <li>
+                      Parents and guardians must attend all parent-teacher
+                      meetings
+                    </li>
+                    <li>
+                      Parents and guardians are not allowed to visit the
+                      children in class without prior permission
+                    </li>
+                    <li>
+                      Parents are requested to inform the school in advance if
+                      the child will remain absent for longer duration.
+                    </li>
+                    <li>
+                      Please check almanac and school bag on a daily basis.
+                    </li>
+                    <li>Please avoid fancy hairstyles and accessories.</li>
+                    <li>
+                      Parents must inform about any allergies or medical
+                      conditions
+                    </li>
+                  </ul>
+                </div>
+              </Card>
+
+              {/* School Norms Card */}
+              <Card style={{ padding: "48px" }}>
+                <h3
+                  style={{
+                    color: "#014A98",
+                    marginBottom: "24px",
+                    fontSize: "1.5rem",
+                    textAlign: "center",
+                  }}
+                >
+                  School Norms
+                </h3>
+
+                <div style={{ marginBottom: "32px" }}>
+                  <h4
+                    style={{
+                      color: "#014A98",
+                      marginBottom: "20px",
+                      fontSize: "1.3rem",
+                    }}
+                  >
+                    Timing
+                  </h4>
+                  <p
+                    style={{
+                      color: "#57534e",
+                      lineHeight: "1.8",
+                      marginBottom: "16px",
+                    }}
+                  >
+                    <strong>School Timing (PG and Nursery):</strong> 9:00 AM -
+                    12:30 PM
+                    <br />
+                    <strong>School Timing (Jr. KG and Sr. KG):</strong> 8:00 AM
+                    - 12:30 PM
+                    <br />
+                    <strong>Meeting with Director/Principal:</strong> 9:00 AM -
+                    11:00 AM
+                    <br />
+                    <strong>Meeting with Coordinator:</strong> 9:00 AM - 11:30
+                    AM
+                  </p>
+                </div>
+
+                <div style={{ marginBottom: "32px" }}>
+                  <h4
+                    style={{
+                      color: "#014A98",
+                      marginBottom: "20px",
+                      fontSize: "1.3rem",
+                    }}
+                  >
+                    Dress Code
+                  </h4>
+                  <p style={{ color: "#57534e", lineHeight: "1.8" }}>
+                    All students are required to wear the prescribed school
+                    uniform. Comfortable shoes are mandatory. Hair should be
+                    neatly tied. The school ID card must be worn at all times.
+                  </p>
+                </div>
+
+                <div>
+                  <h4
+                    style={{
+                      color: "#014A98",
+                      marginBottom: "20px",
+                      fontSize: "1.3rem",
+                    }}
+                  >
+                    Parent Communication
+                  </h4>
+                  <p style={{ color: "#57534e", lineHeight: "1.8" }}>
+                    Regular parent-teacher meetings are conducted monthly.
+                    Communication about daily school activities is regularly
+                    shared with parents. Parents are also encouraged to
+                    participate in school events.
+                  </p>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </Container>
       </section>
 
       {/* Admissions */}
-      <section id="admissions" className="section">
+      <section
+        id="admissions"
+        className="section"
+        style={{ backgroundColor: "#f8fafc" }}
+      >
         <Container>
           <h2
             style={{
@@ -469,10 +593,10 @@ export const GeneralInfo = () => {
                     marginBottom: "24px",
                   }}
                 >
-                  <li>Nursery: 2-3 years</li>
-                  <li>Junior KG: 3-4 years</li>
-                  <li>Senior KG: 4-5 years</li>
-                  <li>UKG: 5-6 years</li>
+                  <li>Playgroup: 2-3 years</li>
+                  <li>Nursery: 3-4 years</li>
+                  <li>Junior KG: 4-5 years</li>
+                  <li>Senior KG: 5-6 years</li>
                 </ul>
               </div>
 
@@ -488,16 +612,16 @@ export const GeneralInfo = () => {
                   }}
                 >
                   <li>Birth Certificate</li>
-                  <li>Vaccination Certificate</li>
+                  <li>Aadhar Card</li>
+                  <li>Parent ID Proof</li>
                   <li>Recent Photographs</li>
                   <li>Previous School Records (if applicable)</li>
-                  <li>Parent ID Proof</li>
                 </ul>
               </div>
 
               <div style={{ textAlign: "center", marginTop: "32px" }}>
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="btn btn-primary"
                   style={{ fontSize: "16px", padding: "16px 32px" }}
                 >

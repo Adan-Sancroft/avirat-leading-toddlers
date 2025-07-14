@@ -1,10 +1,10 @@
 import { Container } from "../ui/Container";
-import { Button } from "../ui/Button";
+// import { Button } from "../ui/Button";
 
 export const Footer = () => {
   return (
     <footer className="footer">
-      {/* Newsletter Section */}
+      {/* Newsletter Section
       <div className="footer-newsletter">
         <Container>
           <h3>Stay Updated with Avirat Learning Tree</h3>
@@ -17,7 +17,7 @@ export const Footer = () => {
             <Button variant="secondary">SUBSCRIBE</Button>
           </div>
         </Container>
-      </div>
+      </div> */}
 
       {/* Main Footer Content */}
       <div className="footer-content">
@@ -26,7 +26,16 @@ export const Footer = () => {
             {/* School Info */}
             <div className="footer-section">
               <div className="logo">
-                <div className="logo-icon">AL</div>
+                <img
+                  src="https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//logo-main.png"
+                  alt="Avirat Leading Toddlers Logo"
+                  style={{
+                    width: "56px",
+                    height: "56px",
+                    borderRadius: "12px",
+                    objectFit: "cover",
+                  }}
+                />
                 <div className="logo-text">
                   <h4 style={{ color: "white", marginBottom: "16px" }}>
                     Avirat Leading Toddlers
@@ -62,7 +71,7 @@ export const Footer = () => {
                   f
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/avirat_leading_toddlers?igsh=bGxrcTViYzI1YWYy "
                   style={{
                     width: "32px",
                     height: "32px",
@@ -78,7 +87,7 @@ export const Footer = () => {
                   📷
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/avirat-learning-tree17/"
                   style={{
                     width: "32px",
                     height: "32px",
@@ -91,7 +100,7 @@ export const Footer = () => {
                     textDecoration: "none",
                   }}
                 >
-                  🐦
+                  💼
                 </a>
               </div>
             </div>
@@ -101,19 +110,16 @@ export const Footer = () => {
               <h4>Information</h4>
               <ul className="footer-links">
                 <li>
-                  <a href="#school-info">School Information</a>
+                  <a href="/general-info#school-info">School Information</a>
                 </li>
                 <li>
-                  <a href="#staff">List of Teachers</a>
+                  <a href="/general-info#staff">List of Teachers</a>
                 </li>
                 <li>
-                  <a href="#rules">School Rules</a>
+                  <a href="/general-info#rules">School Rules</a>
                 </li>
                 <li>
-                  <a href="#norms">School Norms</a>
-                </li>
-                <li>
-                  <a href="#guidance">Guidance</a>
+                  <a href="/general-info#norms">School Norms</a>
                 </li>
               </ul>
             </div>
@@ -123,19 +129,19 @@ export const Footer = () => {
               <h4>Links</h4>
               <ul className="footer-links">
                 <li>
-                  <a href="#about">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="#mission">About Us</a>
+                  <a href="/">About Us</a>
                 </li>
                 <li>
-                  <a href="#activities">Cultural Activities</a>
+                  <a href="/activity-zone">Cultural Activities</a>
                 </li>
                 <li>
-                  <a href="#career">Career</a>
+                  <a href="/career">Career</a>
                 </li>
                 <li>
-                  <a href="#admissions">Admission</a>
+                  <a href="/contact">Contact</a>
                 </li>
               </ul>
             </div>

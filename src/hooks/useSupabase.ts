@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabase";
-import type { Content, Staff, Activity, Enquiry } from "../types/database";
+import type {
+  Content,
+  Staff,
+  Activity,
+  Enquiry,
+  Gallery,
+} from "../types/database";
 
 export const useContent = () => {
   const [content, setContent] = useState<Content[]>([]);
@@ -207,5 +213,55 @@ export const useEnquiries = () => {
     addEnquiry,
     updateEnquiryStatus,
     refetch: fetchEnquiries,
+  };
+};
+
+export const useGallery = () => {
+  const [gallery, setGallery] = useState<Gallery[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchGallery = async () => {
+    const { data, error } = await supabase
+      .from("gallery")
+      .select("*")
+      .order("event_slug", { ascending: true })
+      .order("image_order", { ascending: true });
+
+    if (!error && data) {
+      setGallery(data);
+    }
+    setLoading(false);
+  };
+
+  const addGalleryImage = async (
+    newImage: Omit<Gallery, "id" | "created_at">
+  ) => {
+    const { error } = await supabase.from("gallery").insert([newImage]);
+
+    if (!error) {
+      fetchGallery();
+    }
+    return { error };
+  };
+
+  const deleteGalleryImage = async (id: string) => {
+    const { error } = await supabase.from("gallery").delete().eq("id", id);
+
+    if (!error) {
+      fetchGallery();
+    }
+    return { error };
+  };
+
+  useEffect(() => {
+    fetchGallery();
+  }, []);
+
+  return {
+    gallery,
+    loading,
+    addGalleryImage,
+    deleteGalleryImage,
+    refetch: fetchGallery,
   };
 };

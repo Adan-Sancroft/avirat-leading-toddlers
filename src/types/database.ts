@@ -24,6 +24,10 @@ export interface Activity {
   image_url?: string;
   type: "activity" | "blog" | "news";
   author?: string;
+  slug?: string;
+  full_content?: string;
+  meta_description?: string;
+  published?: boolean;
   created_at: string;
 }
 
@@ -44,5 +48,15 @@ export interface User {
   id: string;
   email: string;
   role: "admin" | "staff";
+  created_at: string;
+}
+
+export interface Gallery {
+  id: string;
+  event_name: string;
+  event_slug: string;
+  image_url: string;
+  image_order: number;
+  description?: string;
   created_at: string;
 }

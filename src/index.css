@@ -148,6 +148,7 @@ p {
 
 .header-main {
   padding: 16px 0;
+  background-color: #feefef;
 }
 
 .header-content {
@@ -211,7 +212,10 @@ p {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #dbe4ff 0%, #e5dbff 100%);
+  /* background: linear-gradient(135deg, #dbe4ff 0%, #e5dbff 100%); */
+  background-image: linear-gradient(135deg, #dbe4ff 0%, #e5dbff 100%);
+  background-image: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//cover.jpg");
+  background-size: cover;
   padding: 100px 0;
   text-align: center;
 }
@@ -272,6 +276,336 @@ p {
 .phone-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Hero Background Style */
+.hero-with-background {
+  /* background-size: cover !important;
+  background-attachment: fixed !important; */
+  position: relative;
+  background-blend-mode: overlay;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Specific Hero Backgrounds */
+/* .hero-about-us {
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.6) 100%
+    ),
+    url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//cover.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+} */
+
+/* Method 1: CSS Backdrop Filter Blur (Modern Browsers) */
+/* About Us Hero */
+.hero-about-us {
+  background: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//cover.jpg");
+  background-position: center 9%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-about-us::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(1.8px);
+  -webkit-backdrop-filter: blur(1.8px);
+  z-index: 1;
+}
+
+.hero-about-us > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* General Info Hero */
+.hero-general-info {
+  background: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//cover2.jpg");
+  background-position: center 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-general-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+.hero-general-info > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Contact Hero */
+.hero-contact {
+  background: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//children-learning.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.hero-contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Gallery Hero */
+.hero-gallery {
+  background: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//cover5.jpg");
+  background-position: center 45%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-gallery::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.hero-gallery > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Career Hero */
+.hero-career {
+  background: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//hero-bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-career::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+.hero-career > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Activities/Activity Zone Hero */
+.hero-activities {
+  background: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//cover4.jpg");
+  background-position: center 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-activities::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+.hero-activities > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Newspaper Coverage Hero */
+.hero-newspaper {
+  background: url("YOUR_NEWSPAPER_IMAGE_URL_HERE");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-newspaper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.hero-newspaper > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Blogs Hero */
+.hero-blogs {
+  background: url("YOUR_BLOGS_IMAGE_URL_HERE");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+}
+
+.hero-blogs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(219, 228, 255, 0.4) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.hero-blogs > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Image placeholders - also add !important */
+.image-with-background {
+  background: url("https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//premium_photo-1681842143575-03bf1be4c11c.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 24px;
 }
 
 /* Two Column Layout */
@@ -352,7 +686,7 @@ p {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 48px;
-  align-items: start;
+  align-items: center;
   background: white;
   padding: 48px;
   border-radius: 24px;
@@ -363,7 +697,7 @@ p {
 
 .message-photo {
   width: 100%;
-  height: 360px;
+  height: 500px;
   background: #f0f9ff;
   border-radius: 16px;
   display: flex;

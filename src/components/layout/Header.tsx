@@ -12,7 +12,7 @@ export const Header = () => {
 
   return (
     <header className="header">
-      {/* Top Contact Bar */}
+      {/* Top Contact Bar
       <div className="header-top">
         <Container>
           <div className="header-top-content">
@@ -32,7 +32,7 @@ export const Header = () => {
             </div>
           </div>
         </Container>
-      </div>
+      </div> */}
 
       {/* Main Navigation */}
       <div className="header-main">
@@ -40,7 +40,16 @@ export const Header = () => {
           <div className="header-content">
             {/* Logo */}
             <Link to="/" className="logo" style={{ textDecoration: "none" }}>
-              <div className="logo-icon">AL</div>
+              <img
+                src="https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//logo-main.png"
+                alt="Avirat Leading Toddlers Logo"
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "12px",
+                  objectFit: "cover",
+                }}
+              />
               <div className="logo-text">
                 <h1>AVIRAT LEADING TODDLERS</h1>
                 <p>Nurturing Young Minds with Care</p>
@@ -170,7 +179,7 @@ export const Header = () => {
               <Link to="/contact" className="nav-item">
                 CONTACT
               </Link>
-              <Button variant="primary">INQUIRY</Button>
+              {/* <Button variant="primary">INQUIRY</Button> */}
 
               {/* Mobile Menu Button */}
               <button

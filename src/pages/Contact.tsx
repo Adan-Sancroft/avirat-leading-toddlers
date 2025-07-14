@@ -52,29 +52,34 @@ export const Contact = () => {
     <div>
       {/* Hero Section */}
       <section
-        style={{
-          background: "linear-gradient(135deg, #dbe4ff 0%, #e5dbff 100%)",
-          padding: "80px 0",
-          textAlign: "center",
-        }}
+        className="hero-with-background hero-contact"
+        style={{ padding: "80px 0", textAlign: "center" }}
       >
         <Container>
-          <h1
-            style={{ fontSize: "3rem", marginBottom: "24px", color: "#292524" }}
-          >
-            Contact Us
-          </h1>
-          <p
-            style={{
-              fontSize: "1.2rem",
-              color: "#57534e",
-              maxWidth: "600px",
-              margin: "0 auto",
-            }}
-          >
-            Get in touch with us for admissions, inquiries, or any questions
-            about our programs.
-          </p>
+          <div className="hero-content">
+            <h1
+              style={{
+                fontSize: "3rem",
+                marginBottom: "24px",
+                color: "#292524",
+              }}
+            >
+              Contact Us
+            </h1>
+            <p
+              style={{
+                fontSize: "1.2rem",
+                color: "#000",
+                fontWeight: "500",
+                maxWidth: "600px",
+                margin: "0 auto",
+              }}
+            >
+              Get in touch with us for any inquiries, feedback, or assistance.
+              We are here to help you and your child have the best experience at
+              Avirat Leading Toddlers!
+            </p>
+          </div>
         </Container>
       </section>
 
@@ -118,7 +123,7 @@ export const Contact = () => {
                     marginBottom: "16px",
                   }}
                 >
-                  📍 1-A/B Gayatri Tenament
+                  1-A/B Gayatri Tenament
                   <br />
                   Near K.K.Nagar Cross Road
                   <br />
@@ -145,7 +150,7 @@ export const Contact = () => {
                     marginBottom: "8px",
                   }}
                 >
-                  📞 <strong>Landline:</strong> 079-27600075
+                  <strong>Landline:</strong> 079-27600075
                 </p>
                 <p
                   style={{
@@ -154,7 +159,7 @@ export const Contact = () => {
                     marginBottom: "16px",
                   }}
                 >
-                  📱 <strong>Mobile:</strong> +91-9723991122
+                  <strong>Mobile:</strong> +91-9723991122
                 </p>
               </div>
 
@@ -175,7 +180,7 @@ export const Contact = () => {
                     marginBottom: "8px",
                   }}
                 >
-                  ✉️ <strong>Email:</strong> info@aviratinternationalschools.com
+                  <strong>Email:</strong> info@aviratinternationalschools.com
                 </p>
                 <p
                   style={{
@@ -184,8 +189,7 @@ export const Contact = () => {
                     marginBottom: "16px",
                   }}
                 >
-                  🌐 <strong>Website:</strong>{" "}
-                  www.aviratinternationalschools.com
+                  <strong>Website:</strong> www.aviratinternationalschools.com
                 </p>
               </div>
 
@@ -206,7 +210,7 @@ export const Contact = () => {
                     marginBottom: "8px",
                   }}
                 >
-                  🕘 <strong>Morning Session:</strong> 9:00 AM - 12:00 PM
+                  <strong>PG and Nursery:</strong> 9:00 AM - 12:30 PM
                 </p>
                 <p
                   style={{
@@ -215,10 +219,10 @@ export const Contact = () => {
                     marginBottom: "8px",
                   }}
                 >
-                  🕐 <strong>Afternoon Session:</strong> 1:00 PM - 4:00 PM
+                  <strong>Jr. KG and Sr. KG:</strong> 8:00 AM - 12:30 PM
                 </p>
                 <p style={{ color: "#57534e", lineHeight: "1.6" }}>
-                  🕓 <strong>Extended Care:</strong> 4:00 PM - 6:00 PM
+                  <strong>Visiting Hours:</strong> 9:00 AM - 11:30 AM
                 </p>
               </div>
             </Card>
@@ -412,10 +416,10 @@ export const Contact = () => {
                       }}
                     >
                       <option value="">Select Program</option>
+                      <option value="ukg">Playgroup</option>
                       <option value="nursery">Nursery</option>
                       <option value="junior-kg">Junior KG</option>
                       <option value="senior-kg">Senior KG</option>
-                      <option value="ukg">UKG</option>
                     </select>
                   </div>
                 </div>
@@ -511,6 +515,7 @@ export const Contact = () => {
                       outline: "none",
                       resize: "vertical",
                       marginBottom: "20px",
+                      fontFamily: "inherit",
                     }}
                     placeholder="Any specific questions or requirements..."
                   />
@@ -557,19 +562,19 @@ export const Contact = () => {
               style={{
                 width: "100%",
                 height: "400px",
-                background: "#dbe4ff",
                 borderRadius: "12px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#014A98",
-                fontSize: "18px",
-                fontWeight: "600",
+                overflow: "hidden",
               }}
             >
-              Google Maps Integration
-              <br />
-              (1-A/B Gayatri Tenament, Ghatlodia, Ahmedabad)
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6390767612284!2d72.54791437496654!3d23.073690079137954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e836f3190c783%3A0xd6d974a6a15cb597!2sAvirat%20Learning%20Tree!5e0!3m2!1sen!2sin!4v1752376840132!5m2!1sen!2sin"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </Card>
         </Container>

@@ -2,39 +2,38 @@ import { Container } from "../components/ui/Container";
 import { Card } from "../components/ui/Card";
 
 export const Career = () => {
-  const openings = [
-    {
-      title: "Preschool Teacher",
-      type: "Full-time",
-      experience: "2-4 years",
-      description:
-        "Passionate educator to nurture young minds through play-based learning and creative activities.",
-    },
-    {
-      title: "Assistant Teacher",
-      type: "Full-time",
-      experience: "1-2 years",
-      description:
-        "Support lead teachers in classroom activities and help create a positive learning environment.",
-    },
-    {
-      title: "Art & Craft Instructor",
-      type: "Part-time",
-      experience: "1-3 years",
-      description:
-        "Creative professional to conduct art and craft sessions for children aged 2-6 years.",
-    },
-    {
-      title: "Music Teacher",
-      type: "Part-time",
-      experience: "2-5 years",
-      description:
-        "Music enthusiast to teach songs, rhymes, and basic musical concepts to young learners.",
-    },
-  ];
+  // const openings = [
+  //   {
+  //     title: "Preschool Teacher",
+  //     type: "Full-time",
+  //     experience: "2-4 years",
+  //     description:
+  //       "Passionate educator to nurture young minds through play-based learning and creative activities.",
+  //   },
+  //   {
+  //     title: "Assistant Teacher",
+  //     type: "Full-time",
+  //     experience: "1-2 years",
+  //     description:
+  //       "Support lead teachers in classroom activities and help create a positive learning environment.",
+  //   },
+  //   {
+  //     title: "Art & Craft Instructor",
+  //     type: "Part-time",
+  //     experience: "1-3 years",
+  //     description:
+  //       "Creative professional to conduct art and craft sessions for children aged 2-6 years.",
+  //   },
+  //   {
+  //     title: "Music Teacher",
+  //     type: "Part-time",
+  //     experience: "2-5 years",
+  //     description:
+  //       "Music enthusiast to teach songs, rhymes, and basic musical concepts to young learners.",
+  //   },
+  // ];
 
   const benefits = [
-    "Competitive salary packages",
     "Professional development opportunities",
     "Friendly and supportive work environment",
     "Performance-based incentives",
@@ -46,34 +45,38 @@ export const Career = () => {
     <div>
       {/* Hero Section */}
       <section
-        style={{
-          background: "linear-gradient(135deg, #dbe4ff 0%, #e5dbff 100%)",
-          padding: "80px 0",
-          textAlign: "center",
-        }}
+        className="hero-with-background hero-career"
+        style={{ padding: "80px 0", textAlign: "center" }}
       >
         <Container>
-          <h1
-            style={{ fontSize: "3rem", marginBottom: "24px", color: "#292524" }}
-          >
-            Join Our Team
-          </h1>
-          <p
-            style={{
-              fontSize: "1.2rem",
-              color: "#57534e",
-              maxWidth: "600px",
-              margin: "0 auto",
-            }}
-          >
-            Be part of our mission to provide quality early childhood education
-            and make a difference in young lives.
-          </p>
+          <div className="hero-content">
+            <h1
+              style={{
+                fontSize: "3rem",
+                marginBottom: "24px",
+                color: "#292524",
+              }}
+            >
+              Join Us
+            </h1>
+            <p
+              style={{
+                fontSize: "1.2rem",
+                color: "#000",
+                fontWeight: "500",
+                maxWidth: "600px",
+                margin: "0 auto",
+              }}
+            >
+              Be part of our mission to provide quality early childhood
+              education and make a difference in young lives.
+            </p>
+          </div>
         </Container>
       </section>
 
       {/* Why Work With Us */}
-      <section className="section">
+      <section className="section" style={{ backgroundColor: "#e3effb" }}>
         <Container>
           <h2
             style={{
@@ -139,7 +142,7 @@ export const Career = () => {
       </section>
 
       {/* Current Openings */}
-      <section className="section section-bg">
+      {/* <section className="section section-bg">
         <Container>
           <h2
             style={{
@@ -222,10 +225,10 @@ export const Career = () => {
             ))}
           </div>
         </Container>
-      </section>
+      </section> */}
 
       {/* Application Process */}
-      <section className="section">
+      <section className="section" style={{ backgroundColor: "#f8fafc" }}>
         <Container>
           <h2
             style={{

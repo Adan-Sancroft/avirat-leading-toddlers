@@ -13,6 +13,7 @@ import { Blogs } from "./pages/Blogs";
 import { Gallery } from "./pages/Gallery";
 import { Career } from "./pages/Career";
 import { Contact } from "./pages/Contact";
+import { ActivityDetail } from "./pages/ActivityDetail";
 
 // Admin Pages
 import { Login } from "./pages/admin/Login";
@@ -21,6 +22,7 @@ import { ContentManagement } from "./pages/admin/ContentManagement";
 import { StaffManagement } from "./pages/admin/StaffManagement";
 import { ActivitiesManagement } from "./pages/admin/ActivitiesManagement";
 import { EnquiriesManagement } from "./pages/admin/EnquiriesManagement";
+import { GalleryManagement } from "./pages/admin/GalleryManagement";
 
 import "./index.css";
 
@@ -94,6 +96,30 @@ function App() {
               </Layout>
             }
           />
+          <Route
+            path="/activity/:slug"
+            element={
+              <Layout>
+                <ActivityDetail />
+              </Layout>
+            }
+          />
+          <Route
+            path="/blog/:slug"
+            element={
+              <Layout>
+                <ActivityDetail />
+              </Layout>
+            }
+          />
+          <Route
+            path="/news/:slug"
+            element={
+              <Layout>
+                <ActivityDetail />
+              </Layout>
+            }
+          />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<Login />} />
@@ -139,6 +165,15 @@ function App() {
             element={
               <AdminLayout>
                 <EnquiriesManagement />
+              </AdminLayout>
+            }
+          />
+
+          <Route
+            path="/admin/gallery"
+            element={
+              <AdminLayout>
+                <GalleryManagement />
               </AdminLayout>
             }
           />

@@ -1,208 +1,258 @@
+import { useState } from "react";
+import { useGallery } from "../hooks/useSupabase";
 import { Container } from "../components/ui/Container";
 import { Card } from "../components/ui/Card";
 
 export const Gallery = () => {
-  /* 
-  TO ADD MORE PICTURES TO THE GALLERY:
-  1. Add new objects to the 'galleryImages' array below
-  2. Each object should have: title, category, and description
-  3. The grid will automatically adjust to fit new items
-  4. For different grid layouts, modify the CSS class in index.css:
-     - .gallery-grid for 4 columns (default)
-     - .gallery-grid-3 for 3 columns
-     - .gallery-grid-2 for 2 columns
-  5. To span images across multiple columns/rows, add 'span' property:
-     - span: 'col-span-2' (spans 2 columns)
-     - span: 'row-span-2' (spans 2 rows)
-  */
+  const { gallery, loading } = useGallery();
 
-  const galleryImages = [
-    {
-      title: "Art & Craft Session",
-      category: "Activities",
-      description: "Children enjoying colorful art and craft activities",
-      span: "", // Normal size
-    },
-    {
-      title: "Annual Sports Day",
-      category: "Events",
-      description: "Exciting sports day celebrations with fun games",
-      span: "col-span-2", // Spans 2 columns - FEATURED IMAGE
-    },
-    {
-      title: "Music Class Fun",
-      category: "Activities",
-      description: "Learning rhythm and songs in our music room",
-      span: "",
-    },
-    {
-      title: "Story Time",
-      category: "Learning",
-      description: "Interactive storytelling sessions with picture books",
-      span: "",
-    },
-    {
-      title: "Garden Activity",
-      category: "Outdoor",
-      description: "Planting seeds and learning about nature",
-      span: "",
-    },
-    {
-      title: "Festival Celebration",
-      category: "Events",
-      description: "Colorful festival celebrations with traditional dances",
-      span: "row-span-2", // Spans 2 rows - TALL IMAGE
-    },
-    {
-      title: "Science Corner",
-      category: "Learning",
-      description: "Simple experiments and discovery activities",
-      span: "",
-    },
-    {
-      title: "Playground Fun",
-      category: "Outdoor",
-      description: "Happy moments on swings and slides",
-      span: "",
-    },
-    {
-      title: "Reading Corner",
-      category: "Learning",
-      description: "Cozy reading space with colorful books",
-      span: "",
-    },
-    {
-      title: "Cooking Activity",
-      category: "Activities",
-      description: "Making healthy snacks and learning nutrition",
-      span: "col-span-2", // Another featured image
-    },
-    {
-      title: "Dance Performance",
-      category: "Events",
-      description: "Annual day dance performances by our little stars",
-      span: "",
-    },
-    {
-      title: "Building Blocks",
-      category: "Activities",
-      description: "Creative construction with colorful building blocks",
-      span: "",
-    },
-    {
-      title: "Water Play Day",
-      category: "Outdoor",
-      description: "Splash and fun on our special water play day",
-      span: "",
-    },
-    {
-      title: "Parent Workshop",
-      category: "Events",
-      description: "Educational workshops for parents and children",
-      span: "",
-    },
-    {
-      title: "Nature Walk",
-      category: "Outdoor",
-      description: "Exploring nature and collecting leaves and flowers",
-      span: "",
-    },
-    {
-      title: "Graduation Ceremony",
-      category: "Events",
-      description: "Proud graduation moments for our UKG students",
-      span: "col-span-2", // Wide featured image
-    },
-  ];
+  // Group images by event
+  const groupedGallery = gallery.reduce((acc, item) => {
+    if (!acc[item.event_slug]) {
+      acc[item.event_slug] = {
+        event_name: item.event_name,
+        images: [],
+      };
+    }
+    acc[item.event_slug].images.push(item);
+    return acc;
+  }, {} as Record<string, { event_name: string; images: typeof gallery }>);
 
-  const categories = ["All", "Activities", "Events", "Learning", "Outdoor"];
+  if (loading) {
+    return (
+      <div style={{ padding: "48px", textAlign: "center" }}>
+        Loading gallery...
+      </div>
+    );
+  }
 
   return (
     <div>
       {/* Hero Section */}
       <section
-        style={{
-          background: "linear-gradient(135deg, #dbe4ff 0%, #e5dbff 100%)",
-          padding: "80px 0",
-          textAlign: "center",
-        }}
+        className="hero-with-background hero-gallery"
+        style={{ padding: "80px 0", textAlign: "center" }}
       >
         <Container>
-          <h1
-            style={{ fontSize: "3rem", marginBottom: "24px", color: "#292524" }}
-          >
-            🎨 School Gallery
-          </h1>
-          <p
-            style={{
-              fontSize: "1.2rem",
-              color: "#57534e",
-              maxWidth: "600px",
-              margin: "0 auto",
-            }}
-          >
-            Capturing precious moments and joyful experiences of our little
-            learners at Avirat Leading Toddlers! ✨
-          </p>
-        </Container>
-      </section>
-
-      {/* Filter Buttons */}
-      <section style={{ padding: "40px 0", background: "#f8fafc" }}>
-        <Container>
-          <div className="filter-buttons">
-            {categories.map((category, index) => (
-              <button
-                key={index}
-                className={`filter-btn ${index === 0 ? "active" : ""}`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="hero-content">
+            <h1
+              style={{
+                fontSize: "3rem",
+                marginBottom: "24px",
+                color: "#292524",
+              }}
+            >
+              Gallery
+            </h1>
+            <p
+              style={{
+                fontSize: "1.2rem",
+                color: "#000",
+                fontWeight: "500",
+                maxWidth: "600px",
+                margin: "0 auto",
+              }}
+            >
+              Capturing precious moments and joyful experiences of our little
+              learners at Avirat Leading Toddlers!
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Gallery Events */}
       <section className="section">
         <Container>
-          <div className="gallery-grid">
-            {galleryImages.map((image, index) => (
-              <div key={index} className={`gallery-item ${image.span}`}>
-                <Card
-                  style={{
-                    padding: "0",
-                    height: "100%",
-                    overflow: "hidden",
-                    position: "relative",
-                  }}
-                >
-                  {/* Image Placeholder */}
-                  <div className={`gallery-image gallery-image-${index % 4}`}>
-                    📸 {image.title}
-                    {/* Category Badge */}
-                    <span className="category-badge">{image.category}</span>
-                  </div>
-
-                  {/* Image Info */}
-                  <div className="gallery-info">
-                    <h3 className="gallery-title">{image.title}</h3>
-                    <p className="gallery-description">{image.description}</p>
-                  </div>
-
-                  {/* Hover Overlay */}
-                  <div className="gallery-overlay">🔍 View Full Size</div>
-                </Card>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+              gap: "32px",
+            }}
+          >
+            {Object.entries(groupedGallery).length > 0 ? (
+              Object.entries(groupedGallery).map(([slug, event]) => (
+                <EventCard key={slug} event={event} />
+              ))
+            ) : (
+              <div
+                style={{
+                  gridColumn: "1 / -1",
+                  textAlign: "center",
+                  padding: "48px",
+                  color: "#78716c",
+                }}
+              >
+                <p>No gallery events found. Please check back later!</p>
               </div>
-            ))}
-          </div>
-
-          {/* Load More Button */}
-          <div style={{ textAlign: "center", marginTop: "48px" }}>
-            <button className="load-more-btn">📷 Load More Pictures</button>
+            )}
           </div>
         </Container>
       </section>
     </div>
+  );
+};
+
+// Event Card Component with Carousel
+const EventCard = ({
+  event,
+}: {
+  event: { event_name: string; images: any[] };
+}) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = event.images;
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <Card style={{ padding: "0", overflow: "hidden" }}>
+      {/* Image Carousel */}
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            width: "100%",
+            height: "250px",
+            background: images[currentImageIndex]?.image_url
+              ? `url(${images[currentImageIndex].image_url})`
+              : "#dbe4ff",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#014A98",
+            fontWeight: "bold",
+          }}
+        >
+          {!images[currentImageIndex]?.image_url && "📸 Event Photo"}
+        </div>
+
+        {/* Carousel Controls */}
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prevImage}
+              style={{
+                position: "absolute",
+                left: "10px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0,0,0,0.5)",
+                color: "white",
+                border: "none",
+                borderRadius: "50%",
+                width: "40px",
+                height: "40px",
+                cursor: "pointer",
+                fontSize: "18px",
+              }}
+            >
+              ‹
+            </button>
+            <button
+              onClick={nextImage}
+              style={{
+                position: "absolute",
+                right: "10px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0,0,0,0.5)",
+                color: "white",
+                border: "none",
+                borderRadius: "50%",
+                width: "40px",
+                height: "40px",
+                cursor: "pointer",
+                fontSize: "18px",
+              }}
+            >
+              ›
+            </button>
+          </>
+        )}
+
+        {/* Image Counter */}
+        {images.length > 1 && (
+          <div
+            style={{
+              position: "absolute",
+              bottom: "10px",
+              right: "10px",
+              background: "rgba(0,0,0,0.7)",
+              color: "white",
+              padding: "4px 8px",
+              borderRadius: "12px",
+              fontSize: "12px",
+            }}
+          >
+            {currentImageIndex + 1} / {images.length}
+          </div>
+        )}
+      </div>
+
+      {/* Event Title */}
+      <div
+        style={{
+          padding: "20px",
+          textAlign: "center",
+        }}
+      >
+        <h3
+          style={{
+            fontSize: "1.3rem",
+            fontWeight: "bold",
+            color: "#292524",
+            margin: "0",
+          }}
+        >
+          {event.event_name}
+        </h3>
+        {images[currentImageIndex]?.description && (
+          <p
+            style={{
+              color: "#57534e",
+              fontSize: "14px",
+              marginTop: "8px",
+              margin: "8px 0 0",
+            }}
+          >
+            {images[currentImageIndex].description}
+          </p>
+        )}
+      </div>
+
+      {/* Dots Indicator */}
+      {images.length > 1 && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "8px",
+            paddingBottom: "16px",
+          }}
+        >
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                border: "none",
+                background: index === currentImageIndex ? "#ff8787" : "#e2e8f0",
+                cursor: "pointer",
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </Card>
   );
 };
