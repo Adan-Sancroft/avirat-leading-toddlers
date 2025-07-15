@@ -51,7 +51,7 @@ export const ActivityDetail = () => {
           >
             ← Back
           </button>
-          <h1
+          {/* <h1
             style={{ fontSize: "3rem", color: "#292524", marginBottom: "16px" }}
           >
             {activity.title}
@@ -60,7 +60,7 @@ export const ActivityDetail = () => {
             <p style={{ fontSize: "1.2rem", color: "#57534e" }}>
               By {activity.author}
             </p>
-          )}
+          )} */}
         </Container>
       </section>
 
