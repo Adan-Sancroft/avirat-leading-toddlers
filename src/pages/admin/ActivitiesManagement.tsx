@@ -20,6 +20,7 @@ export const ActivitiesManagement = () => {
     image_url: "",
     type: "activity" as Activity["type"],
     author: "",
+    full_content: "",
   });
 
   const filteredActivities = activities.filter(
@@ -43,6 +44,7 @@ export const ActivitiesManagement = () => {
       image_url: "",
       type: "activity",
       author: "",
+      full_content: "",
     });
   };
 
@@ -54,6 +56,7 @@ export const ActivitiesManagement = () => {
       image_url: activity.image_url || "",
       type: activity.type,
       author: activity.author || "",
+      full_content: activity.full_content || "",
     });
     setShowForm(true);
   };
@@ -73,6 +76,7 @@ export const ActivitiesManagement = () => {
       image_url: "",
       type: "activity",
       author: "",
+      full_content: "",
     });
   };
 
@@ -307,6 +311,46 @@ export const ActivitiesManagement = () => {
                     />
                   </div>
                 )}
+
+                <div style={{ marginBottom: "24px" }}>
+                  <label
+                    style={{
+                      display: "block",
+                      marginBottom: "8px",
+                      fontWeight: "600",
+                      color: "#292524",
+                    }}
+                  >
+                    Full Content - HTML for Read More pages
+                  </label>
+                  <textarea
+                    value={formData.full_content}
+                    onChange={(e) =>
+                      setFormData({ ...formData, full_content: e.target.value })
+                    }
+                    rows={8}
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      border: "2px solid #e2e8f0",
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      outline: "none",
+                      resize: "vertical",
+                      fontFamily: "monospace",
+                    }}
+                    placeholder="Enter full HTML content here"
+                  />
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#78716c",
+                      marginTop: "4px",
+                    }}
+                  >
+                    You can use HTML tags for formatting.
+                  </p>
+                </div>
 
                 <div style={{ marginBottom: "32px" }}>
                   <label
