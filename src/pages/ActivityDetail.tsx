@@ -44,7 +44,6 @@ export const ActivityDetail = () => {
               background: "none",
               border: "none",
               color: "#014A98",
-              marginBottom: "24px",
               fontSize: "16px",
               cursor: "pointer",
             }}
