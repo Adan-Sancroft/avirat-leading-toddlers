@@ -30,10 +30,22 @@ export const ActivitiesManagement = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const slug = formData.title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/^-|-$/g, "");
+
+    const activityData = {
+      ...formData,
+      slug: slug,
+      published: true,
+    };
+
     if (editingActivity) {
-      await updateActivity(editingActivity.id, formData);
+      await updateActivity(editingActivity.id, activityData);
     } else {
-      await addActivity(formData);
+      await addActivity(activityData);
     }
 
     setShowForm(false);
