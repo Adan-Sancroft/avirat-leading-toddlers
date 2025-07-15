@@ -32,7 +32,7 @@ export const Blogs = () => {
                 color: "#292524",
               }}
             >
-              Activity Zone
+              Blogs
             </h1>
             <p
               style={{
@@ -43,9 +43,10 @@ export const Blogs = () => {
                 margin: "0 auto",
               }}
             >
-              Engaging and educational activities designed to nurture
-              creativity, curiosity, and comprehensive development in young
-              learners.
+              Discover insights, expert advice, and educational perspectives
+              from our experienced team of educators. Explore topics ranging
+              from child development and learning strategies to innovative
+              teaching methods and family support.
             </p>
           </div>
         </Container>
