@@ -32,7 +32,7 @@ export const NewspaperCoverage = () => {
                 color: "#292524",
               }}
             >
-              Activity Zone
+              Newspaper Coverage
             </h1>
             <p
               style={{
@@ -43,9 +43,9 @@ export const NewspaperCoverage = () => {
                 margin: "0 auto",
               }}
             >
-              Engaging and educational activities designed to nurture
-              creativity, curiosity, and comprehensive development in young
-              learners.
+              Celebrating our achievements and community impact as featured in
+              media publications. Discover how Avirat Leading Toddlers continues
+              to make headlines for excellence in early childhood education.
             </p>
           </div>
         </Container>
