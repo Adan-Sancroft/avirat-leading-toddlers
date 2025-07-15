@@ -78,6 +78,7 @@ export const Blogs = () => {
                       fontWeight: "bold",
                       color: "#292524",
                       marginBottom: "16px",
+                      textAlign: "center",
                     }}
                   >
                     {blog.title}
