@@ -31,15 +31,17 @@ export const ActivityZone = () => {
               style={{
                 fontSize: "3rem",
                 marginBottom: "24px",
-                color: "#292524",
+                color: "rgba(255,255,255,1)",
+                textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
               }}
             >
               Activity Zone
             </h1>
             <p
               style={{
-                fontSize: "1.2rem",
-                color: "#000",
+                fontSize: "1.5rem",
+                color: "rgba(255,255,255,1)",
+                textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
                 fontWeight: "500",
                 maxWidth: "600px",
                 margin: "0 auto",
@@ -113,7 +115,7 @@ export const ActivityZone = () => {
                   >
                     {activity.description}
                   </p>
-                  {/* <a
+                  <a
                     href={`/activity/${activity.slug}`}
                     style={{
                       display: "inline-block",
@@ -129,7 +131,7 @@ export const ActivityZone = () => {
                     }}
                   >
                     Learn More
-                  </a> */}
+                  </a>
                 </Card>
               ))
             ) : (

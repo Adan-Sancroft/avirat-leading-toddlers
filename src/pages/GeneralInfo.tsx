@@ -24,16 +24,18 @@ export const GeneralInfo = () => {
               style={{
                 fontSize: "3rem",
                 marginBottom: "24px",
-                color: "#292524",
+                color: "rgba(255,255,255,1)",
+                textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
               }}
             >
               General Information
             </h1>
             <p
               style={{
-                fontSize: "1.3rem",
+                fontSize: "1.5rem",
                 fontWeight: "500",
-                color: "#000",
+                color: "rgba(255,255,255,1)",
+                textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
                 maxWidth: "600px",
                 margin: "0 auto",
               }}
@@ -45,7 +47,11 @@ export const GeneralInfo = () => {
       </section>
 
       {/* School Information */}
-      <section id="school-info" className="section">
+      <section
+        id="school-info"
+        className="section"
+        style={{ backgroundColor: "#f9fdfdff" }}
+      >
         <Container>
           <h2
             style={{
@@ -72,6 +78,7 @@ export const GeneralInfo = () => {
                   color: "#57534e",
                   lineHeight: "1.8",
                   marginBottom: "20px",
+                  fontSize: "18px",
                 }}
               >
                 Avirat Leading Toddlers is a premier early childhood education
@@ -85,6 +92,7 @@ export const GeneralInfo = () => {
                   color: "#57534e",
                   lineHeight: "1.8",
                   marginBottom: "20px",
+                  fontSize: "18px",
                 }}
               >
                 We believe in nurturing each child's unique potential while
@@ -163,9 +171,9 @@ export const GeneralInfo = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
+              gridTemplateColumns: "repeat(4, 1fr)",
               gap: "32px",
-              maxWidth: "1000px",
+              maxWidth: "1200px",
               margin: "0 auto",
             }}
           >
@@ -182,8 +190,8 @@ export const GeneralInfo = () => {
               >
                 <div
                   style={{
-                    width: "120px",
-                    height: "150px",
+                    width: "150px",
+                    height: "180px",
                     borderRadius: "12px",
                     background: staffMember.image_url
                       ? `url(${staffMember.image_url})`
@@ -389,7 +397,11 @@ export const GeneralInfo = () => {
       </section> */}
 
       {/* School Rules & Norms - Combined Section */}
-      <section id="rules-norms" className="section">
+      <section
+        id="rules-norms"
+        className="section"
+        style={{ backgroundColor: "#f9fdfdff" }}
+      >
         <Container>
           {/* <h2
             style={{
@@ -435,6 +447,7 @@ export const GeneralInfo = () => {
                       color: "#57534e",
                       lineHeight: "1.8",
                       paddingLeft: "20px",
+                      fontSize: "18px",
                     }}
                   >
                     <li>
@@ -498,6 +511,7 @@ export const GeneralInfo = () => {
                       color: "#57534e",
                       lineHeight: "1.8",
                       marginBottom: "16px",
+                      fontSize: "18px",
                     }}
                   >
                     <strong>School Timing (PG and Nursery):</strong> 9:00 AM -
@@ -524,7 +538,13 @@ export const GeneralInfo = () => {
                   >
                     Dress Code
                   </h4>
-                  <p style={{ color: "#57534e", lineHeight: "1.8" }}>
+                  <p
+                    style={{
+                      color: "#57534e",
+                      lineHeight: "1.8",
+                      fontSize: "18px",
+                    }}
+                  >
                     All students are required to wear the prescribed school
                     uniform. Comfortable shoes are mandatory. Hair should be
                     neatly tied. The school ID card must be worn at all times.
@@ -541,7 +561,13 @@ export const GeneralInfo = () => {
                   >
                     Parent Communication
                   </h4>
-                  <p style={{ color: "#57534e", lineHeight: "1.8" }}>
+                  <p
+                    style={{
+                      color: "#57534e",
+                      lineHeight: "1.8",
+                      fontSize: "18px",
+                    }}
+                  >
                     Regular parent-teacher meetings are conducted monthly.
                     Communication about daily school activities is regularly
                     shared with parents. Parents are also encouraged to
@@ -591,6 +617,7 @@ export const GeneralInfo = () => {
                     lineHeight: "1.8",
                     paddingLeft: "20px",
                     marginBottom: "24px",
+                    fontSize: "18px",
                   }}
                 >
                   <li>Playgroup: 2-3 years</li>
@@ -609,6 +636,7 @@ export const GeneralInfo = () => {
                     color: "#57534e",
                     lineHeight: "1.8",
                     paddingLeft: "20px",
+                    fontSize: "18px",
                   }}
                 >
                   <li>Birth Certificate</li>

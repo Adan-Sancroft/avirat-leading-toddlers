@@ -332,11 +332,11 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
-  backdrop-filter: blur(1.8px);
-  -webkit-backdrop-filter: blur(1.8px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   z-index: 1;
 }
 
@@ -369,11 +369,11 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   z-index: 1;
 }
 
@@ -406,8 +406,8 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -443,8 +443,8 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -480,11 +480,11 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   z-index: 1;
 }
 
@@ -517,11 +517,11 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   z-index: 1;
 }
 
@@ -552,8 +552,8 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -587,8 +587,8 @@ p {
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(219, 228, 255, 0.4) 100%
+    rgba(1, 74, 152, 0.6),
+    rgba(255, 135, 135, 0.4)
   );
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);

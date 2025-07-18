@@ -67,11 +67,11 @@ export const AboutUs = () => {
               src="https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/home-images//logo-main.png"
               alt="Avirat Leading Toddlers Logo"
               style={{
-                width: "96px",
-                height: "96px",
+                width: "300px",
+                height: "300px",
                 borderRadius: "24px",
                 objectFit: "cover",
-                margin: "0 auto 32px",
+                margin: "48px auto 32px",
                 boxShadow: "0 20px 40px rgba(1, 74, 152, 0.3)",
                 display: "block",
               }}
@@ -80,7 +80,8 @@ export const AboutUs = () => {
               style={{
                 fontSize: "4rem",
                 marginBottom: "24px",
-                color: "#292524",
+                color: "rgba(255,255,255,1)",
+                textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
               }}
             >
               AVIRAT LEADING TODDLERS
@@ -89,7 +90,8 @@ export const AboutUs = () => {
               className="hero-subtitle"
               style={{
                 fontSize: "1.5rem",
-                color: "rgba(14, 11, 72, 1)",
+                color: "rgba(255,255,255,1)",
+                textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
                 fontWeight: "600",
                 marginBottom: "16px",
               }}
@@ -100,7 +102,8 @@ export const AboutUs = () => {
               className="hero-info"
               style={{
                 fontSize: "1.1rem",
-                color: "#000000ff",
+                color: "rgba(255,255,255,1)",
+                textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
                 marginBottom: "48px",
               }}
             >
@@ -127,7 +130,7 @@ export const AboutUs = () => {
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="section">
+      <section id="mission" className="section section-bg">
         <Container>
           <div className="two-column">
             <div>
@@ -178,7 +181,11 @@ export const AboutUs = () => {
       </section>
 
       {/* Vision Section */}
-      <section id="vision" className="section section-bg">
+      <section
+        id="vision"
+        className="section section-bg"
+        style={{ backgroundColor: "#f9fdfdff" }}
+      >
         <Container>
           <div className="two-column">
             <div>
@@ -230,7 +237,7 @@ export const AboutUs = () => {
       </section>
 
       {/* Goals Section */}
-      <section className="section">
+      <section className="section section-bg">
         <Container>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <h2 style={{ fontSize: "2.5rem", marginBottom: "24px" }}>

@@ -55,7 +55,7 @@ export const Footer = () => {
               </p>
               <div style={{ display: "flex", gap: "12px" }}>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/share/14E3w51aECG/?mibextid=wwXIfr "
                   style={{
                     width: "32px",
                     height: "32px",
