@@ -113,7 +113,7 @@ export const ActivityZone = () => {
                   >
                     {activity.description}
                   </p>
-                  <a
+                  {/* <a
                     href={`/activity/${activity.slug}`}
                     style={{
                       display: "inline-block",
@@ -129,7 +129,7 @@ export const ActivityZone = () => {
                     }}
                   >
                     Learn More
-                  </a>
+                  </a> */}
                 </Card>
               ))
             ) : (

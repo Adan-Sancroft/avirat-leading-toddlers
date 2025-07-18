@@ -113,7 +113,7 @@ export const NewspaperCoverage = () => {
                   >
                     {article.description}
                   </p>
-                  <a
+                  {/* <a
                     href={`/news/${article.slug}`}
                     style={{
                       display: "inline-block",
@@ -128,7 +128,7 @@ export const NewspaperCoverage = () => {
                     }}
                   >
                     Read Full Article
-                  </a>
+                  </a> */}
                 </Card>
               ))
             ) : (
