@@ -283,7 +283,11 @@ export const AboutUs = () => {
       </section>
 
       {/* Director's Message */}
-      <section id="director" className="section">
+      <section
+        id="director"
+        className="section"
+        style={{ backgroundColor: "#f9fdfdff" }}
+      >
         <Container>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <h2 style={{ fontSize: "2.5rem", marginBottom: "24px" }}>
@@ -437,6 +441,91 @@ export const AboutUs = () => {
                 </p>
                 <p style={{ color: "#78716c" }}>
                   Principal, Avirat Leading Toddlers
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Coordinator's Message */}
+      <section
+        id="director"
+        className="section"
+        style={{ backgroundColor: "#f9fdfdff" }}
+      >
+        <Container>
+          <div style={{ textAlign: "center", marginBottom: "64px" }}>
+            <h2 style={{ fontSize: "2.5rem", marginBottom: "24px" }}>
+              Message from the Coordinator
+            </h2>
+          </div>
+
+          <div className="message-card">
+            <div>
+              <div
+                className="message-photo"
+                style={{
+                  background: `url('https://trgvnfgftnftedxiasyg.supabase.co/storage/v1/object/public/teachers-photo//akanksha.jpg')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+              <div style={{ textAlign: "center", marginTop: "24px" }}>
+                {/* <h3>Dr. Seema Singh</h3>
+                <p className="message-title">Director</p>
+                <p className="message-org">Avirat Leading Toddlers</p> */}
+              </div>
+            </div>
+
+            <div className="message-content">
+              <p
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: "600",
+                  color: "#292524",
+                  marginBottom: "24px",
+                }}
+              >
+                Dear Avirat Leading Toddlers Family,
+              </p>
+              <p className="message-text">
+                As the Coordinator at Avirat Leading Toddlers, I have the
+                privilege of witnessing the beautiful daily interactions between
+                our children, families, and dedicated educators. My role
+                involves ensuring that every child's journey through our program
+                is smooth, supported, and filled with meaningful learning
+                experiences.
+              </p>
+              <p className="message-text">
+                Communication is at the heart of everything we do. I work
+                closely with families to understand each child's unique needs,
+                interests, and developmental goals. Through regular check-ins,
+                progress updates, and collaborative planning, we create a strong
+                partnership that extends learning beyond our classroom walls.
+              </p>
+              <p className="message-text">
+                Our coordination extends to creating seamless transitions,
+                organizing enriching activities, and maintaining the warm,
+                welcoming environment that makes Avirat feel like a second home
+                for our children. Together, we're building not just academic
+                foundations, but lifelong learning habits and social skills.
+              </p>
+              <div className="message-signature">
+                <p style={{ fontWeight: "600", marginBottom: "8px" }}>
+                  With heartfelt gratitude,
+                </p>
+                <p
+                  style={{
+                    color: "#014A98",
+                    fontWeight: "bold",
+                    fontSize: "1.1rem",
+                  }}
+                >
+                  Ms. Akanksha Vaghela
+                </p>
+                <p style={{ color: "#78716c" }}>
+                  Coordinator, Avirat Leading Toddlers
                 </p>
               </div>
             </div>

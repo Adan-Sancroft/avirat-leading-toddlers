@@ -182,9 +182,9 @@ export const GeneralInfo = () => {
               >
                 <div
                   style={{
-                    width: "100px",
-                    height: "100px",
-                    borderRadius: "50%",
+                    width: "120px",
+                    height: "150px",
+                    borderRadius: "12px",
                     background: staffMember.image_url
                       ? `url(${staffMember.image_url})`
                       : "#dbe4ff",
